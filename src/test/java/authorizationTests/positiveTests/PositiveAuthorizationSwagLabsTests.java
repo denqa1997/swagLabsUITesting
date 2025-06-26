@@ -1,4 +1,4 @@
-package authorizationTests;
+package authorizationTests.positiveTests;
 
 import baseTest.AbstractTest;
 import org.junit.jupiter.api.DisplayName;
@@ -9,9 +9,9 @@ import swagLabsSitePages.ProductsPage;
 
 import static propertyManager.SetUpProperty.getProps;
 
-public class AuthorizationSwagLabsTests extends AbstractTest {
+public class PositiveAuthorizationSwagLabsTests extends AbstractTest {
 
-    @DisplayName("Авторизация в личном кабинете сайта - Swag Labs")
+    @DisplayName("Успешная авторизация в личном кабинете сайта - Swag Labs под разными типами логинов")
     @ParameterizedTest
     @MethodSource("testData.TestDataLoginPage#provideArguments")
     void authorizationInSwagLabsByDifferentTypeOfUsers (Object typeOfLogin) {
