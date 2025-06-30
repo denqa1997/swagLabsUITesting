@@ -33,42 +33,36 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>5.13.1</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>5.13.1</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-params</artifactId>
                 <version>5.13.1</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
             <dependency>
                 <groupId>org.junit.vintage</groupId>
                 <artifactId>junit-vintage-engine</artifactId>
                 <version>5.13.1</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
             <dependency>
                 <groupId>org.junit.platform</groupId>
                 <artifactId>junit-platform-launcher</artifactId>
                 <version>1.13.1</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>3.27.3</version>
-                <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
             <dependency>
@@ -76,7 +70,84 @@
                 <artifactId>commons-io</artifactId>
                 <version>2.19.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-selenide</artifactId>
+                <version>2.29.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.guicedee.services/slf4j -->
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>slf4j</artifactId>
+                <version>1.2.2.1</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit5</artifactId>
+                <version>2.29.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-commandline -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-commandline</artifactId>
+                <version>2.29.0</version>
+                <type>pom</type>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5-assert -->
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit5-assert</artifactId>
+                <version>2.29.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest</artifactId>
+                <version>3.0</version>
+            </dependency>
         </dependencies>
-
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.15.2</version>
+                <configuration>
+                    <reportVersion>2.29.0</reportVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar"
+                    </argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.junit5.AllureJunit5</value>
+                        </property>
+                    </properties>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.24</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 </project>

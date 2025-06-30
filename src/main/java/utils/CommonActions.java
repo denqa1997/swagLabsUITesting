@@ -6,7 +6,6 @@ import java.util.List;
 
 public class CommonActions {
 
-
     public static void clearDirectories() {
         List<String> directoriesForClear = new ArrayList<>();
         directoriesForClear.add(0, "build/reports/tests");

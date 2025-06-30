@@ -1,6 +1,9 @@
 package baseTest;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.LogEventListener;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,11 +17,11 @@ public class AbstractTest {
 
     @BeforeAll
     static void configureBrowser() {
+        SelenideLogger.addListener("allure-selenide", new AllureSelenide());
         ChromeOptions options = new ChromeOptions()
                 .addArguments(
                         "--incognito",
                         "--disable-dev-shm-usage",
-                        "--start-fullscreen",
                         "--disable-popup-blocking",
                         "--disable-infobars"
                 );
