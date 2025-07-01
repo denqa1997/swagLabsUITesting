@@ -11,7 +11,8 @@ public class ViewOfProductPage {
     public static final String
             sauceLabsBackpackPrice = "$29.99",
             wrongSauceLabsBackpackPrice = "$30.00",
-            productName = "Sauce Labs Backpack";
+            rightProductName = "Sauce Labs Backpack",
+            wrongProductName = "Sauce1 Labs1 Backpack1";
     private final SelenideElement
             priceSelector = $(".inventory_details_price"),
             addToCartButton = $("#add-to-cart"),
@@ -36,11 +37,11 @@ public class ViewOfProductPage {
         return this;
     }
 
-    public BucketPage checkThatProductWasAddedToTheCart() {
+    public BucketPage checkThatProductWasAddedToTheCart(String selector) {
         removeButton.shouldBe(visible);
         shoppingCartBadge.shouldHave(text("1"));
         shoppingCartLink.click();
-        inventoryItemName.shouldHave(text(productName));
+        inventoryItemName.shouldHave(text(String.valueOf(selector)));
         inventoryItemPrice.shouldHave(text(sauceLabsBackpackPrice));
         return new BucketPage();
     }

@@ -1,4 +1,4 @@
-package addToBucketTests.positiveTests;
+package addToBucketTests.negativeTests;
 
 import baseTest.AbstractTest;
 import org.junit.jupiter.api.DisplayName;
@@ -9,12 +9,12 @@ import swagLabsSitePages.ProductsPage;
 import swagLabsSitePages.ViewOfProductPage;
 
 import static propertyManager.SetUpProperty.getProps;
-import static swagLabsSitePages.ViewOfProductPage.rightProductName;
+import static swagLabsSitePages.ViewOfProductPage.wrongProductName;
 
-public class AddProductToTheBucket extends AbstractTest {
+public class NegativeAddProductToTheBucket extends AbstractTest {
 
     @Test
-    @DisplayName("Добавление продукта в корзину + проверка добавления")
+    @DisplayName("Проверка что в корзину добавили не тот продукт, который ожидаем")
     void successAddProductToTheBucket() {
         ProductsPage productsPage = new LoginPage()
                 .setUserName(getProps("standartLogin"))
@@ -26,6 +26,8 @@ public class AddProductToTheBucket extends AbstractTest {
 
         BucketPage bucketPage = new ViewOfProductPage()
                 .addProductToTheCart()
-                .checkThatProductWasAddedToTheCart(rightProductName);
+                .checkThatProductWasAddedToTheCart(wrongProductName);
     }
 }
+
+
