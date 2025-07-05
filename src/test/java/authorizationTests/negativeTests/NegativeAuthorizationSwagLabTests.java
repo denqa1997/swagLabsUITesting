@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import swagLabsSitePages.LoginPage;
 
-import static propertyManager.SetUpProperty.getProps;
+import static utils.propertyManager.SetUpProperty.getProps;
 
 public class NegativeAuthorizationSwagLabTests extends AbstractTest {
 

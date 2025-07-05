@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import swagLabsSitePages.LoginPage;
 import swagLabsSitePages.ProductsPage;
 
-import static propertyManager.SetUpProperty.getProps;
+import static utils.propertyManager.SetUpProperty.getProps;
 
 public class PositiveAuthorizationSwagLabsTests extends AbstractTest {
 

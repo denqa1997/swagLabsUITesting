@@ -5,14 +5,18 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import swagLabsSitePages.*;
 
-import static propertyManager.SetUpProperty.getProps;
+import java.sql.SQLException;
+
+import static Constants.ConstantsForTests.testQuery;
+import static utils.propertyManager.SetUpProperty.getProps;
+import static utils.sqlQueries.sqlQueryManager.selectQueryWithAssert;
 import static swagLabsSitePages.CheckoutPage.checkTitleText;
 import static swagLabsSitePages.ViewOfProductPage.rightProductName;
 
 public class SuccessfulOrdering extends AbstractTest {
     @Test
     @DisplayName("Успешное оформление заказа на предмет из магазина")
-     void successfulOrderingItem() {
+     void successfulOrderingItem() throws SQLException {
         ProductsPage productsPage = new LoginPage()
                 .setUserName(getProps("standartLogin"))
                 .setPassWord(getProps("password"))
@@ -40,5 +44,7 @@ public class SuccessfulOrdering extends AbstractTest {
         ProductsPage productsPage1 = new CompletePage()
                 .checkTheSuccessfulOrdering("Thank you for your order!")
                 .backToTheProductsPage();
+
+        selectQueryWithAssert(testQuery, 3);
     }
 }

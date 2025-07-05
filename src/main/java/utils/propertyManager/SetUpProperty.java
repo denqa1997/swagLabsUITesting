@@ -1,4 +1,7 @@
-package propertyManager;
+package utils.propertyManager;
+
+import io.github.cdimascio.dotenv.Dotenv;
+import io.qameta.allure.internal.shadowed.jackson.core.json.UTF8DataInputJsonParser;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,5 +18,10 @@ public class SetUpProperty {
         }
 
         return props.getProperty(key);
+    }
+
+    public static String getEnvs (String env) {
+        Dotenv dotenv = Dotenv.load();
+        return dotenv.get(env);
     }
 }

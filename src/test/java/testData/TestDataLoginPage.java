@@ -4,7 +4,7 @@ import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.stream.Stream;
 
-import static propertyManager.SetUpProperty.getProps;
+import static utils.propertyManager.SetUpProperty.getProps;
 
 public class TestDataLoginPage {
 

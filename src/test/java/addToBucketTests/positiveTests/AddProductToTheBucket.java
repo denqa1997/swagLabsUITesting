@@ -8,7 +8,7 @@ import swagLabsSitePages.LoginPage;
 import swagLabsSitePages.ProductsPage;
 import swagLabsSitePages.ViewOfProductPage;
 
-import static propertyManager.SetUpProperty.getProps;
+import static utils.propertyManager.SetUpProperty.getProps;
 import static swagLabsSitePages.ViewOfProductPage.rightProductName;
 
 public class AddProductToTheBucket extends AbstractTest {

@@ -7,7 +7,7 @@ import swagLabsSitePages.LoginPage;
 import swagLabsSitePages.ProductsPage;
 import swagLabsSitePages.ViewOfProductPage;
 
-import static propertyManager.SetUpProperty.getProps;
+import static utils.propertyManager.SetUpProperty.getProps;
 
 public class UnsuccessfulOpenTheProduct extends AbstractTest {
 
