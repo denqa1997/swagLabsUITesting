@@ -2,13 +2,14 @@
 *.class
 
 #Idea files
-.allure
-allure-results
-.idea
 selenide-allure-junit.iml
+swagLabsUITesting.iml
 target/
 build/
 target/allure-results/
+.allure
+allure-results
+.idea
 
 # Log file
 *.log
