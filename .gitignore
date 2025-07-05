@@ -2,6 +2,8 @@
 *.class
 
 #Idea files
+.allure
+allure-results
 .idea
 selenide-allure-junit.iml
 target/
